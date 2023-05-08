@@ -1,6 +1,6 @@
 # flutter_application_webrtc
 
-## Process:
+### Process:
 
 1. User A 點擊 "Offer" 來建立新的 WebRTC 連線，透過 createOffer 建立新的 SDP offer 給 remotePeer (User B)，createOffer 成功後，新的 SDP offer 需先透過 setLocalDescription 來更新自身的 localDescription 資訊
   <img width="600" alt="Screen Shot 2023-05-08 at 10 43 21 PM" src="https://user-images.githubusercontent.com/77234273/236855046-a06e0bf2-d544-4713-8368-ebca30c82aec.png">
