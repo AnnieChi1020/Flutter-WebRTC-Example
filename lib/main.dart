@@ -66,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return stream;
   }
 
-  _createPeerConnecion() async {
+  _createPeerConnection() async {
     Map<String, dynamic> configuration = {
       "iceServers": [
         {"url": "stun:stun.l.google.com:19302"},
@@ -86,10 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
     RTCPeerConnection pc =
         await createPeerConnection(configuration, offerSdpConstraints);
 
-    // pc.addStream(_localStream!);
-
     _localStream?.getTracks().forEach((track) {
-      pc?.addTrack(track, _localStream!);
+      pc.addTrack(track, _localStream!);
     });
 
     pc.onIceCandidate = (e) {
@@ -163,10 +161,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     initRenderer();
-    _createPeerConnecion().then((pc) {
+    _createPeerConnection().then((pc) {
       _peerConnection = pc;
     });
-    // _getUserMedia();
     super.initState();
   }
 
